@@ -18,7 +18,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-
 @Component
 public class FilterJava implements Filter {
 	private Logger logger = LoggerFactory.getLogger(FilterJava.class);
@@ -29,13 +28,15 @@ public class FilterJava implements Filter {
 		logger.info("Chegou no portão do castelo");
 		HttpServletRequest req = (HttpServletRequest) request;
 		Enumeration<String> headerNames = req.getHeaderNames();
-		Map<String, String> mapHeaders = Collections.list(headerNames).stream()
+		Map<String, String> mapHeaders = Collections.list(headerNames)
+				.stream()
 				.collect(Collectors.toMap(it -> it, req::getHeader));
-		if (mapHeaders.get("autorization") != null && mapHeaders.get("autorization").equals("BATATINHA")) {
-
+		if (mapHeaders.get("authorization") != null && mapHeaders.get("authorization").equals("BATATINHA")) {
+			
 		} else {
 			HttpServletResponse res = (HttpServletResponse) response;
 			res.sendError(403);
+			return;
 		}
 		
 		logger.info("Saiu no portão do castelo");

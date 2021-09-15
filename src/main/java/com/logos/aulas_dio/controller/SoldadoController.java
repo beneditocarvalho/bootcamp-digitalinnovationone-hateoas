@@ -39,6 +39,7 @@ public class SoldadoController {
 
     @PostMapping
     public ResponseEntity criarSoldado(@RequestBody Soldado soldado) {
+    	System.out.println("Entrou no post");
         soldadoService.criarSoldado(soldado);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
