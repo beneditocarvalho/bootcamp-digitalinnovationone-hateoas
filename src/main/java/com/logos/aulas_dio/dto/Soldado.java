@@ -8,7 +8,6 @@ public class Soldado {
 	private String arma;
 	private String status;
 	
-	
 	public String getCpf() {
 		return cpf;
 	}

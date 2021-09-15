@@ -19,8 +19,6 @@ public class ResourceSoldado {
 	
 	@Autowired
 	private SoldadoController soldadoController;
-	
-	
 
 	public SoldadoListResponse criarLink(SoldadoEntity soldadoEntity) {
 		SoldadoListResponse soldadoListResponse = objectMapper.convertValue(soldadoEntity, SoldadoListResponse.class);
